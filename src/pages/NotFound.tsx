@@ -1,7 +1,7 @@
 import { Temporary } from "../components/Temporary";
 
 const NotFoundPage = () => {
-    return <Temporary  text='NotFoundPage page'/>
+    return <Temporary  text='NotFoundPage'/>
  
     
 }

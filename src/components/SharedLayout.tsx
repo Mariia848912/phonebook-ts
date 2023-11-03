@@ -4,11 +4,11 @@ import { Outlet, NavLink } from "react-router-dom";
 export const SharedLayout = () => {
   return (
     <>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/contacts">Contacts</NavLink>
+      <nav className="flex gap-[12px]	">
+        <NavLink to="/" className='aria-[current=page]:text-cyan-400 '>Home</NavLink>
+        <NavLink to="/login" className='aria-[current=page]:text-cyan-400 '>Login</NavLink>
+        <NavLink to="/register" className='aria-[current=page]:text-cyan-400 '>Register</NavLink>
+        <NavLink to="/contacts" className='aria-[current=page]:text-cyan-400 '>Contacts</NavLink>
       </nav>
 
       <Suspense>
