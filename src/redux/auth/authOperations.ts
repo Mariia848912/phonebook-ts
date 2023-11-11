@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as api from '../../service/apiService';
 import { RootState } from '../store';
 // import { toast } from 'react-toastify';
-import {UserLogIn, UserRegister} from '../../types/userTypes'
+import {UserLogIn, UserRegister} from '../../types/user.types'
 
 
 export const register = createAsyncThunk(

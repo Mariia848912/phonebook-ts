@@ -1,10 +1,12 @@
 import { lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { SharedLayout } from "./components/SharedLayout";
 import { useAppDispatch } from "./redux/hooks";
 import { useAuth } from "./hooks";
 import { refreshUser } from "./redux/auth/authOperations";
+import { SharedLayout } from "./components/SharedLayout";
+import { RestrictedRoute } from "./components/Routes/RestrictedRoute";
+import { PrivateRoute } from "./components/Routes/PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const RegisterPage = lazy(() => import("./pages/Register"));
@@ -28,9 +30,9 @@ function App() {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/contacts" element={<ContactPage />} />
+            <Route path="/login" element={<RestrictedRoute component={<LoginPage/> } redirectTo='/contacts' />} />
+            <Route path="/register" element={<RestrictedRoute component={<RegisterPage/> } redirectTo='/contacts' />} />
+            <Route path="/contacts" element={<PrivateRoute component={<ContactPage />} redirectTo='/login' />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

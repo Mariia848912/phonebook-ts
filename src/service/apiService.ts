@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { UserLogIn, UserRegister } from '../types/userTypes';
+import { UserLogIn, UserRegister } from '../types/user.types';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
