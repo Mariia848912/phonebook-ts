@@ -1,7 +1,12 @@
 import { Temporary } from "../components/Temporary";
 
+
 const Home = () => {
-    return <Temporary  text='Home page'/>
+    return (<>
+        <Temporary text='Home page' />
+       
+    </>
+        )
  
     
 }
