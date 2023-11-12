@@ -5,11 +5,11 @@ import { RootState } from '../store';
 import {UserLogIn, UserRegister} from '../../types/user.types'
 
 
-export const register = createAsyncThunk(
-  'auth/register',
+export const signUp = createAsyncThunk(
+  'auth/signUp',
   async (credentials:UserRegister, thunkAPI) => {
     try {
-      const response = await api.register(credentials);
+      const response = await api.signUp(credentials);
           return response;
     } catch (error) {
         return thunkAPI.rejectWithValue(

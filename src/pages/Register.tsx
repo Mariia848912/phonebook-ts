@@ -1,7 +1,7 @@
-import { Temporary } from "../components/Temporary";
+import { RegisterForm } from "../components/Forms/RegisterForm";
 
 const Register = () => {
-    return <Temporary  text='Register page'/>
+    return <RegisterForm />
  
     
 }
