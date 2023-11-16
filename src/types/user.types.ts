@@ -1,7 +1,7 @@
-export interface UserLogIn {
+export interface LoginFormData {
   password: string;
   email: string;
 }
-export interface UserRegister extends UserLogIn {
+export interface RegistrationFormData extends LoginFormData {
   name: string;
 }

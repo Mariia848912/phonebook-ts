@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Outlet, NavLink } from "react-router-dom";
+import { Container } from "./Common/Container";
 
 export const SharedLayout = () => {
   return (
@@ -13,7 +14,9 @@ export const SharedLayout = () => {
 
       <Suspense>
         <main>
-          <Outlet />
+          <Container> 
+            <Outlet />
+            </Container>
         </main>
       </Suspense>
     </>

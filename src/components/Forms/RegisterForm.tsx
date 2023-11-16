@@ -1,12 +1,12 @@
-import { useForm, SubmitHandler } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from 'react-hook-form';
 import { useState } from "react";
-import { UserRegister } from "../../types/user.types";
-import { getValitadionSchemaRegisterForm } from "../../utils/getValitadionSchemaRegisterForm";
-import { useAppDispatch } from "../../redux/hooks";
-import { signUp } from "../../redux/auth/authOperations";
-import { Eye, EyeOff } from "../../images/icons";
-import { CustomInput } from "./CustomInput/CustomInput";
+import { CustomInput } from './CustomInput/CustomInput';
+import { RegistrationFormData } from '../../types/user.types';
+import { useAppDispatch } from '../../redux/hooks';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { getValitadionSchemaRegisterForm } from '../../utils/getValitadionSchemaRegisterForm';
+import { signUp } from '../../redux/auth/authOperations';
+
 
 export const RegisterForm = () => {
   const dispatch = useAppDispatch();
@@ -18,43 +18,41 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<UserRegister>({
+  } = useForm<RegistrationFormData>({
     resolver: yupResolver(getValitadionSchemaRegisterForm()),
   });
 
-  const onSubmit: SubmitHandler<UserRegister> = (data) => {
+  const onSubmit = (data: RegistrationFormData) => {
     dispatch(signUp(data));
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <CustomInput
+      <CustomInput<RegistrationFormData>
         label="Name"
         register={register}
         name="name"
         type="text"
         error={errors.name}
       />
-      <CustomInput
+      <CustomInput<RegistrationFormData>
         label="Email"
         register={register}
         name="email"
         type="email"
         error={errors.email}
       />
-
-      <CustomInput
+      <CustomInput<RegistrationFormData>
         label="Password"
         register={register}
         name="password"
         type={showPassword ? "text" : "password"}
+           toogleShowPassword={toogleShowPassword}
+        showPassword={showPassword}
         error={errors.password}
       />
-
-      <button type="button" onClick={toogleShowPassword}>
-        {showPassword ? <Eye /> : <EyeOff />}
-      </button>
-
-      <input type="submit" />
+  
+      <button type="submit">Register</button>
     </form>
   );
 };

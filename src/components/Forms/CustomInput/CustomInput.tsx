@@ -1,19 +1,32 @@
-import { InputProps } from "./CustomInput.types";
+import { FieldValues  } from "react-hook-form";
+import { InputType } from "./CustomInput.types";
+import { Eye, EyeOff } from "../../../images/icons";
 
-export const CustomInput = ({
+export const CustomInput = <T extends FieldValues>({
   label,
   register,
   name,
   type,
   error,
+  toogleShowPassword,
+  showPassword,
   ...rest
-}: InputProps) => {
+}: InputType<T>) => {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
-      <input id={name} type={type} {...register(name)} {...rest} />
-
-      {error?.message && <p>{error.message}</p>}
+      <label>
+        <span>{label}</span>
+        <input type={type} {...register(name)} {...rest} />
+        {error?.message && <p>{error.message}</p>}
+      </label>
+      {name === 'password' &&  <button
+              type="button"
+              onClick={toogleShowPassword}
+              className="absolute bottom-[16px] right-[12px]"
+            >
+              {showPassword ? <Eye /> : <EyeOff />}
+            </button>}
+            
     </>
   );
 };
