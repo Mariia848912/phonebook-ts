@@ -6,7 +6,7 @@ export const getValitadionSchemaRegisterForm = () => {
   const emailValidationText =
     'a valid email address has 4 parts: recipient name (John2), @ symbol, domain name (gmail), top-level domain (.com). For example: "John52@gmail.com".';
   return yup.object().shape({
-    name: yup.string().trim().required('Name is a required field'),
+    name: yup.string().trim().required('name is a required field'),
     email: yup
       .string()
       .trim()
