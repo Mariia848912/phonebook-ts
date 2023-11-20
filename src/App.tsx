@@ -1,6 +1,7 @@
 import { lazy, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-
+ import { ToastContainer,  } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import { useAppDispatch } from "./redux/hooks";
 import { useAuth } from "./hooks";
 import { refreshUser } from "./redux/auth/authOperations";
@@ -37,6 +38,8 @@ function App() {
           </Route>
         </Routes>
       )}
+        <ToastContainer autoClose={3000} />
+
     </>
   );
 }
