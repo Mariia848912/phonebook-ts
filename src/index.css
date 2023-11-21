@@ -17,11 +17,11 @@ html {
 body {
   margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; 
-line-height: 1.5;
+  line-height: 1.5;
   font-weight: 400;
   color: #212121;
   background-color: #ffffff;
-}
+  }
 
 html,
 body,
@@ -55,3 +55,14 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+
+.link {
+  @apply inline-block py-s  hover:text-textBrand
+}
+.link.active {
+  @apply font-500 after:content-[''] after:absolute after:bottom-0 after:left-0
+after:block after:w-full after:h-xs3 after:rounded-minimal after:bg-bgDefaultBlue
+
+}
+

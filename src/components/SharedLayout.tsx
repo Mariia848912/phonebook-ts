@@ -9,7 +9,7 @@ export const SharedLayout = () => {
       <AppBar />
       <Suspense>
         <main>
-          <Container>
+          <Container containerStyle="mt-[56px]">
             <Outlet />
           </Container>
         </main>

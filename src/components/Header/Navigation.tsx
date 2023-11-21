@@ -5,14 +5,20 @@ export const Navigation = () => {
   const { isLoggedIn } = useAuth();
   return (
     <nav>
-      <NavLink to="/" className="aria-[current=page]:text-cyan-400">
-        Home
-      </NavLink>
-      {isLoggedIn && (
-        <NavLink to="/contacts" className="aria-[current=page]:text-cyan-400">
-          Contacts
-        </NavLink>
-      )}
+      <ul className="flex gap-[16px]">
+        <li className="relative">
+           <NavLink to="/" className="link">
+            Home
+          </NavLink>
+        </li>
+        <li className="relative">
+          {isLoggedIn && (
+            <NavLink to="/contacts" className="link">
+              Contacts
+            </NavLink>
+          )}
+        </li>
+      </ul>
     </nav>
   );
 };
